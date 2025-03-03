@@ -18,7 +18,6 @@ def test_submit_form_success(practice_form):
     browser.element('[for=hobbies-checkbox-2]').click()
     browser.element('#uploadPicture').type(os.path.abspath('src/20241021_190523.jpg'))
     browser.element('#currentAddress').type('Москва, ул.Ленина, д.1, кв.100')
-    browser.element('#submit').perform(command.js.scroll_into_view)
     browser.element('#state').click().element('#react-select-3-option-0').click()
     browser.element('#city').click().element('#react-select-4-option-0').click()
     browser.element('#submit').click()
@@ -43,7 +42,6 @@ def test_submit_form_success(practice_form):
 
 
 def test_submit_form_empty(practice_form):
-    browser.element('#submit').perform(command.js.scroll_into_view)
     browser.element('#submit').click()
     browser.element('#firstName').should(have.css_property('validity[valid]', False))
     browser.element('#lastName').should(have.css_property('validity[valid]', False))

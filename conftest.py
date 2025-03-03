@@ -19,6 +19,8 @@ def browser_settings():
 @pytest.fixture(scope='function', autouse=False)
 def practice_form(browser_settings):
     browser.open("/automation-practice-form")
+    browser.driver.execute_script("$('#fixedban').remove()")
+    browser.driver.execute_script("$('footer').remove()")
 
     yield
 
