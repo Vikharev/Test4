@@ -15,13 +15,6 @@ def browser_settings():
     driver_options.page_load_strategy = 'eager'
     browser.config.driver_options = driver_options
 
-
-@pytest.fixture(scope='function', autouse=False)
-def practice_form(browser_settings):
-    browser.open("/automation-practice-form")
-    browser.driver.execute_script("$('#fixedban').remove()")
-    browser.driver.execute_script("$('footer').remove()")
-
     yield
 
     browser.quit()
