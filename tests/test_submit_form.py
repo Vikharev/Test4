@@ -14,7 +14,7 @@ def test_submit_form_success(browser_settings):
     registration_page.fill_date_of_birth(1989, 11, 11)
     registration_page.fill_subject("Maths")
     registration_page.select_hobbies("Sports")
-    registration_page.upload_photo("src/20241021_190523.jpg")
+    registration_page.upload_photo("20241021_190523.jpg")
     registration_page.fill_current_address(
         "Москва, ул.Ленина, д.1, кв.100"
     )
