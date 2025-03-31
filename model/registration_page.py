@@ -2,6 +2,8 @@ import os
 
 from selene import browser, be, have
 
+import tests
+
 
 class RegistrationPage:
     def open(self):
@@ -42,7 +44,12 @@ class RegistrationPage:
             element.should(be.clickable).click()
 
     def upload_photo(self, value):
-        browser.element("#uploadPicture").type(os.path.abspath(f'tests/src/{value}'))
+        browser.element("#uploadPicture").type(
+            os.path.abspath(
+                os.path.join(
+                    os.path.dirname(tests.__file__), f'src/{value}')
+            )
+        )
 
     def fill_current_address(self, value):
         browser.element("#currentAddress").type(value)
