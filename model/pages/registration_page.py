@@ -2,6 +2,7 @@ import os
 
 from selene import browser, be, have
 
+import tests
 from model.data.users import User
 
 
@@ -54,7 +55,12 @@ class RegistrationPage:
         return self
 
     def upload_photo(self, value):
-        browser.element("#uploadPicture").type(os.path.abspath(f'src/{value}'))
+        browser.element("#uploadPicture").type(
+            os.path.abspath(
+                os.path.join(
+                    os.path.dirname(tests.__file__), f'src/{value}')
+            )
+        )
         return self
 
     def fill_current_address(self, value):
