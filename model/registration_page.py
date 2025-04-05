@@ -13,6 +13,7 @@ class RegistrationPage:
 
     @allure.step('Удаление мешающих банеров')
     def remove_banners(self):
+        browser.driver.execute_script("$('#fixedban').remove()")
         browser.element('footer').execute_script('element.remove()')
 
     @allure.step('Заполнение имени значением: {value}')
@@ -37,6 +38,7 @@ class RegistrationPage:
 
     @allure.step('Заполнение даты рождения значением: {day}.{month}.{year}')
     def fill_date_of_birth(self, year, month, day):
+        browser.element("#dateOfBirthInput").perform(command.js.scroll_into_view).click()
         browser.element("#dateOfBirthInput").click()
         (browser.element(".react-datepicker__year-select").click().
          element(f'[value="{year}"]').click())
