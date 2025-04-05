@@ -1,7 +1,7 @@
 import allure
 import os
 
-from selene import browser, be, have
+from selene import browser, be, have, command
 
 import tests
 
@@ -46,6 +46,7 @@ class RegistrationPage:
 
     @allure.step('Выбор предмета: {value}')
     def fill_subject(self, value):
+        browser.element('#subjectsInput').perform(command.js.scroll_into_view).click()
         browser.element('#subjectsInput').type(value).press_enter()
 
     @allure.step('Выбор хобби: {hobbies}')
@@ -77,6 +78,7 @@ class RegistrationPage:
 
     @allure.step('Нажатие на кнопку отправки формы')
     def click_submit_button(self):
+        browser.element('#submit').perform(command.js.scroll_into_view).click()
         browser.element('#submit').should(be.visible).click()
 
     @staticmethod
