@@ -80,7 +80,7 @@ class RegistrationPage:
 
     @allure.step('Нажатие на кнопку отправки формы')
     def click_submit_button(self):
-        browser.element('#submit').perform(command.js.scroll_into_view).click()
+        browser.element('#submit').perform(command.js.scroll_into_view)
         browser.element('#submit').should(be.visible).click()
 
     @staticmethod
